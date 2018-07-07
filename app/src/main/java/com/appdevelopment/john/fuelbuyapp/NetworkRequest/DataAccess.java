@@ -83,6 +83,11 @@ public class DataAccess {
         return (JSONObject) jsonData.get(index);
     }
 
+    public String getJSONEntry (int row, String key) {
+        JSONObject rowData = (JSONObject) jsonData.get(row);
+        return (String) rowData.get(key);
+    }
+
 
 
 
