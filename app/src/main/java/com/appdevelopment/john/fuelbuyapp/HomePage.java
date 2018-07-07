@@ -3,7 +3,7 @@ package com.appdevelopment.john.fuelbuyapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class InputData extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
