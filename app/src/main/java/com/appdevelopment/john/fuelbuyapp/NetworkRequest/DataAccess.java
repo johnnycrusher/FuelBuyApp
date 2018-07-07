@@ -1,6 +1,8 @@
 package com.appdevelopment.john.fuelbuyapp.NetworkRequest;
 
 import org.json.simple.JSONArray;
+import org.json.simple.parser.*;
+import org.json.simple.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -65,6 +67,15 @@ public class DataAccess {
             throw new EmptyStringException("URL String is Empty");
         }else {
             return URL;
+        }
+    }
+
+    public void parseJSONToJSONArray() throws ParseException, EmptyStringException {
+        if(response.toString().equals("")) {
+            throw new EmptyStringException("No Response Data Collected");
+        }else {
+            JSONParser parser = new JSONParser();
+            this.jsonData = (JSONArray)parser.parse(response.toString());
         }
     }
 
