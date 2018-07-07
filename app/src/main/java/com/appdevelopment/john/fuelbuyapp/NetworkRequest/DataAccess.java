@@ -60,5 +60,15 @@ public class DataAccess {
         }
     }
 
+    public String getURLString() throws EmptyStringException{
+        if(URL.equals("")) {
+            throw new EmptyStringException("URL String is Empty");
+        }else {
+            return URL;
+        }
+    }
+
+
+
 
 }
