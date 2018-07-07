@@ -79,6 +79,10 @@ public class DataAccess {
         }
     }
 
+    public JSONObject getJSONObject(int index) {
+        return (JSONObject) jsonData.get(index);
+    }
+
 
 
 
