@@ -92,5 +92,9 @@ public class DataAccess {
         return (String) rowData.get(key);
     }
 
+    public int getLengthOfJSON() {
+        return jsonData.size();
+    }
+
 
 }
