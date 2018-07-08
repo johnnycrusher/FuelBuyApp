@@ -1,5 +1,7 @@
 package com.appdevelopment.john.fuelbuyapp.NetworkRequest;
 
+import android.util.Log;
+
 import org.json.simple.JSONArray;
 import org.json.simple.parser.*;
 import org.json.simple.JSONObject;
@@ -25,7 +27,7 @@ public class DataAccess {
         this.postcode = Integer.toString(postCode);
         this.fuel = fuelType;
         StringBuilder builder = new StringBuilder();
-        final String  baseURL = "http://localhost:8000/?";
+        final String  baseURL = "http://192.168.1.94:8000/?";
         String postCodeFlag = "Postcode=";
         String fuelFlag = "Fuel=";
         String querySeperator = "&";
@@ -47,13 +49,15 @@ public class DataAccess {
             throw new EmptyStringException("URL is not defined");
         } else {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setReadTimeout(10000);
+            con.setConnectTimeout(10000);
             con.setRequestMethod("GET");
+            con.connect();
             int responseCode = con.getResponseCode();
-            System.out.println("\nSending 'GET' request to URL : " + URL);
-            System.out.println("Response Code : " + responseCode);
+            Log.i("Sending 'GET' request", URL);
+            Log.i("Response Code", Integer.toString(responseCode));
 
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(con.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 this.response.append(inputLine);
@@ -87,8 +91,6 @@ public class DataAccess {
         JSONObject rowData = (JSONObject) jsonData.get(row);
         return (String) rowData.get(key);
     }
-
-
 
 
 }
