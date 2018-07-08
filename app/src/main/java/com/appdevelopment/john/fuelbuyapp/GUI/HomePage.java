@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.appdevelopment.john.fuelbuyapp.R;
 
@@ -36,10 +37,27 @@ public class HomePage extends AppCompatActivity {
         String fuelTypeString = fuelSpinner.getSelectedItem().toString();
 //        Log.i("Postcode:",Integer.toString(postcodeInteger));
 //        Log.i("Fuel Type:", fuelTypeString);
+        String fuelType = "";
+
+        switch(fuelTypeString){
+            case "E10 Unleaded":
+                fuelType = "E10";
+                break;
+            case "Unleaded":
+                fuelType = "Unleaded";
+                break;
+            case "Premium Unleaded 95":
+                fuelType = "Premium%20Unleaded%2095";
+                break;
+            case "Diesel":
+                fuelType = "Diesel";
+        }
+
+        Log.i("Fuel Type", fuelType);
 
         Intent intent = new Intent(this, FuelInfoPage.class);
         intent.putExtra(EXTRA_NUMBER, postcodeInteger);
-        intent.putExtra(EXTRA_TEXT,fuelTypeString);
+        intent.putExtra(EXTRA_TEXT,fuelType);
         startActivity(intent);
     }
 }

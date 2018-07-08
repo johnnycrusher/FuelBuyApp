@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FuelBuyApp</string>
     <string-array name="fuelArray">
-        <item>E10</item>
+        <item>E10 Unleaded</item>
         <item>Unleaded</item>
         <item>Premium Unleaded 95</item>
         <item>Diesel</item>

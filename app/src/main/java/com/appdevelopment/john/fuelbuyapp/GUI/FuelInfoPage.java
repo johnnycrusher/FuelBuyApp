@@ -29,7 +29,7 @@ public class FuelInfoPage extends AppCompatActivity {
 //        String [][] tableElements;
 //        @Override
 //        protected Void doInBackground(Void... arg0){
-//            DataAccess connection = new DataAccess();
+//            DataAccess connection = new DataAccess(postcode);
 //
 //        }
 //    }
