@@ -96,5 +96,10 @@ public class DataAccess {
         return jsonData.size();
     }
 
+    public int getLengthOfJSONRow(int row) {
+        JSONObject rowData = (JSONObject) jsonData.get(row);
+        return rowData.size();
+    }
+
 
 }
