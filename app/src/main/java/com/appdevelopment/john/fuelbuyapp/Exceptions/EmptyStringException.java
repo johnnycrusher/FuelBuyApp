@@ -1,8 +1,6 @@
 package com.appdevelopment.john.fuelbuyapp.Exceptions;
 
 public class EmptyStringException extends Exception {
-
-}
     public EmptyStringException() {
         super();
     }
@@ -13,4 +11,5 @@ public class EmptyStringException extends Exception {
      */
     public EmptyStringException(String message) {
         super(message);
+    }
 }
