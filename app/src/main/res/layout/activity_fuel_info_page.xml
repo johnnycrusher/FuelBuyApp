@@ -73,24 +73,10 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TableLayout
+            android:id="@+id/TableLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
         </TableLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

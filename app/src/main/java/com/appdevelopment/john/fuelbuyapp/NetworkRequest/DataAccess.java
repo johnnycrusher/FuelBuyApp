@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import com.appdevelopment.john.fuelbuyapp.Exceptions.EmptyStringException;
 
 
@@ -101,5 +102,12 @@ public class DataAccess {
         return rowData.size();
     }
 
-
+    public String getKeyValue(int row, int column) {
+        JSONObject rowData = (JSONObject) jsonData.get(row);
+        ArrayList<String> keyArrayList = new ArrayList<String>();
+        for(Object key: rowData.keySet()) {
+            keyArrayList.add((String) key);
+        }
+        return keyArrayList.get(column);
+    }
 }
