@@ -73,9 +73,12 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TableLayout
-            android:id="@+id/TableLayout"
+            android:id="@+id/fuelLocationInfo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*"
+            >
 
         </TableLayout>
     </ScrollView>
