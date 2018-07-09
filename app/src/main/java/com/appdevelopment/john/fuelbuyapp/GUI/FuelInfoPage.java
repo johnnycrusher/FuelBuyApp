@@ -17,6 +17,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 
 public class FuelInfoPage extends AppCompatActivity {
@@ -74,25 +75,19 @@ public class FuelInfoPage extends AppCompatActivity {
             TableRow[] tableRow = new TableRow[dataAccess.getLengthOfJSON()];
             TextView[] textItem = new TextView[4];
             Boolean firstRow = true;
+            ArrayList<String> keyValues = new ArrayList<String>();
             for(int row = 0; row < dataAccess.getLengthOfJSON(); row++){
                 tableRow[row] = new TableRow(FuelInfoPage.this);
                 for(int column = 0; column < dataAccess.getLengthOfJSONRow(row); column++){
                     textItem[column] = new TextView(FuelInfoPage.this);
                     if(firstRow) {
                         textItem[column].setText(dataAccess.getKeyValue(row + 1, column));
+                        keyValues.add(dataAccess.getKeyValue(row + 1, column));
                         if (column == 3) {
                             firstRow = false;
                         }
                     }else{
-                        if(column == 0){
-                            textItem[column].setText(dataAccess.getJSONEntry(row,"Fuel Station"));
-                        }else if(column == 1){
-                            textItem[column].setText(dataAccess.getJSONEntry(row,"Address"));
-                        }else if(column == 2){
-                            textItem[column].setText(dataAccess.getJSONEntry(row,"Price"));
-                        }else{
-                            textItem[column].setText(dataAccess.getJSONEntry(row,"As At"));
-                        }
+                        textItem[column].setText(dataAccess.getJSONEntry(row,keyValues.get(column)));
                     }
                     tableRow[row].addView(textItem[column]);
                 }
